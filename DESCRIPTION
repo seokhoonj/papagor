@@ -1,0 +1,15 @@
+Package: papagor
+Title: Papago text translator for R users
+Version: 0.1.0
+Authors@R: 
+    person(given = "Seokhoon", family = "Joo", role = c("aut", "cre"),
+           email = "seokhoonj@gmail.com")
+Description: API wrapper for papago text translator
+             <https://developers.naver.com/apps/#/register>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 3.5.0)
+Imports:
+    reticulate (>= 1.28)
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
