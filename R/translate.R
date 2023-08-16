@@ -59,7 +59,7 @@ translate_data <- function(data, columns, source = "en", target = "ko", platform
 ##'
 ##' \preformatted{
 ##' ## Examples
-##' translate_unique_data(data = _some_data_frame_, source = "ja", target = "ko")
+##' translate_data_unique(data = _some_data_frame_, source = "ja", target = "ko")
 ##' }
 ##'
 ##' @param data A data.frame contains columns you want to translate
@@ -69,7 +69,7 @@ translate_data <- function(data, columns, source = "en", target = "ko", platform
 ##' @param platform FALSE using naver cloud platform or not
 ##' @return A data.frame with unique translated columns (contains both input and output columns)
 ##' @export
-translate_unique_data <- function(data, columns, source = "en", target = "ko", platform = FALSE) {
+translate_data_unique <- function(data, columns, source = "en", target = "ko", platform = FALSE) {
   client_id <- get_client_id()
   client_secret <- get_client_secret()
   if (missing(columns))
@@ -81,5 +81,5 @@ translate_unique_data <- function(data, columns, source = "en", target = "ko", p
     target = target,
     platform = platform
   )
-  return(translator$translate_unique_data(data = data, columns = columns))
+  return(translator$translate_data_unique(data = data, columns = columns))
 }
