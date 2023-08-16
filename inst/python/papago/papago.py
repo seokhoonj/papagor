@@ -84,10 +84,10 @@ class Translator:
 
     def translate_data_unique(self, data, columns):
         '''translate unique data to reduce the text size'''
-        # columns = data.columns
+        if not isinstance(columns, list): columns = [columns]
         unique_data = []
         translated = []
-        for column in columns:
+        for _, column in enumerate(columns):
             unique_column_data = list(data.loc[:, column].unique())
             if np.nan in unique_column_data:
                 unique_column_data.remove(np.nan)
@@ -97,11 +97,11 @@ class Translator:
         translated_data = pd.DataFrame()
         for i, _ in enumerate(columns):
             translated_data = pd.concat([
-                translated_data, 
+                translated_data,
                 pd.DataFrame({
-                  columns[i] + '_' + self.source: unique_data[i], 
+                  columns[i] + '_' + self.source: unique_data[i],
                   columns[i] + '_' + self.target: translated[i]
-                })], axis=1)
+                })], axis = 1)
         return translated_data
 
     # def read_sheets(path):
