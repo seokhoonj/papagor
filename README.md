@@ -1,7 +1,8 @@
 # papagor
 
 <!-- badges: start -->
-
+[![CRAN status](https://www.r-pkg.org/badges/version/papagor)](https://CRAN.R-project.org/package=papagor)
+[![R-CMD-check](https://github.com/seokhoonj/papagor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/seokhoonj/papagor/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Introduction
