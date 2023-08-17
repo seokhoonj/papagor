@@ -20,8 +20,8 @@ PAPAGO Text Translator for R users
 2.  via Naver Cloud Platform (platform = TRUE)
 
 -   Papago Text Translation API for large-scale characters (Monthly payment)
--   You can register your app on the webpage below and get your client id and secret.
--   <https://www.ncloud.com/product/aiService/papagoTranslation>
+-   You can register your app on the webpage below and get your client id and secret.\
+    <https://www.ncloud.com/product/aiService/papagoTranslation>
 -   Fees are charged based on the number of characters.
 -   The number of characters is rounded up to the nearest 1,000,000 characters.
 
