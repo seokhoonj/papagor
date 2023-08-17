@@ -104,12 +104,12 @@ class Translator:
                 })], axis = 1)
         return translated_data
 
-    # def read_sheets(path):
-    #     return [sht for sht in pd.read_excel(
-    #         path, sheet_name=None, skiprows=0, engine='openpyxl').keys()]
+    def read_sheets(path):
+        return [sht for sht in pd.read_excel(
+            path, sheet_name = None, skiprows = 0, engine = 'openpyxl').keys()]
 
-    # def save_xlsx(data, sheets, path):
-    #     writer = pd.ExcelWriter(path)
-    #     for i, d in enumerate(data):
-    #         d.to_excel(writer, sheet_name=f'{sheets[i]}', index=False)
-    #     writer.save()
+    def save_xlsx(data, sheets, path):
+        writer = pd.ExcelWriter(path)
+        for i, d in enumerate(data):
+            d.to_excel(writer, sheet_name = f'{sheets[i]}', index = False)
+        writer.save()
