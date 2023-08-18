@@ -40,7 +40,7 @@ translate <- function(text, source = "en", target = "ko", platform = FALSE) {
 ##' @param platform FALSE using naver cloud platform or not
 ##' @return A translated data.frame
 ##' @export
-translate_data <- function(data, columns, source = "en", target = "ko", platform = FALSE) {
+translate_data <- function(data, columns, keep_columns = TRUE, source = "en", target = "ko", platform = FALSE) {
   client_id <- get_client_id()
   client_secret <- get_client_secret()
   if (missing(columns))
@@ -52,7 +52,9 @@ translate_data <- function(data, columns, source = "en", target = "ko", platform
     target = target,
     platform = platform
   )
-  return(translator$translate_data(data = data, columns = columns))
+  return(translator$translate_data(
+    data = data, columns = columns, keep_columns = keep_columns
+  ))
 }
 
 ##' Papago unique text translation for data

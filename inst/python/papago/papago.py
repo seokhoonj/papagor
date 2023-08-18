@@ -77,9 +77,21 @@ class Translator:
                 translated.append(translated_text)
         return translated
 
-    def translate_data(self, data, columns):
+    def translate_data(self, data, columns, keep_columns):
         '''translate data'''
-        data[columns] = data[columns].apply(lambda x: self.translate(texts = x))
+        if keep_columns:
+            if not isinstance(columns, list): columns = [columns]
+            data_source = data[columns]
+            data_target = data_source.apply(lambda x: self.translate(texts = x))
+            data_target.columns = [col + "_" + self.target for col in columns]
+            data = pd.concat([data_source, data_target], axis = 1)
+            column_order = []
+            for i, _ in enumerate(data_source.columns):
+                column_order.append(data_source.columns[i])
+                column_order.append(data_target.columns[i])
+            data = data[column_order]
+        else:
+            data[columns] = data[columns].apply(lambda x: self.translate(texts = x))
         return data
 
     def translate_data_unique(self, data, columns):
@@ -88,7 +100,8 @@ class Translator:
         unique_data = []
         translated = []
         for _, column in enumerate(columns):
-            unique_column_data = list(data.loc[:, column].unique())
+            unique_column_data = list(data[column].unique())
+            print(unique_column_data)
             if np.nan in unique_column_data:
                 unique_column_data.remove(np.nan)
             unique_data.append(unique_column_data)
@@ -99,7 +112,7 @@ class Translator:
             translated_data = pd.concat([
                 translated_data,
                 pd.DataFrame({
-                  columns[i] + '_' + self.source: unique_data[i],
+                  columns[i] : unique_data[i],
                   columns[i] + '_' + self.target: translated[i]
                 })], axis = 1)
         return translated_data
