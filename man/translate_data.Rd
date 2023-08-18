@@ -4,18 +4,27 @@
 \alias{translate_data}
 \title{Papago text translation for data}
 \usage{
-translate_data(data, columns, source = "en", target = "ko", platform = FALSE)
+translate_data(
+  data,
+  columns,
+  keep_columns = TRUE,
+  source = "en",
+  target = "ko",
+  platform = FALSE
+)
 }
 \arguments{
 \item{data}{A data.frame contains columns you want to translate}
 
 \item{columns}{Columns you want to translate}
 
+\item{keep_columns}{A boolean value specifying keeping source data columns or not}
+
 \item{source}{A string specifying a source language like "en", "ko", "ja", ...}
 
 \item{target}{A string specifying a target language like "en", "ko", "ja", ...}
 
-\item{platform}{FALSE using naver cloud platform or not}
+\item{platform}{A boolean value specifying using naver cloud platform or not}
 }
 \value{
 A translated data.frame

@@ -35,9 +35,10 @@ translate <- function(text, source = "en", target = "ko", platform = FALSE) {
 ##'
 ##' @param data A data.frame contains columns you want to translate
 ##' @param columns Columns you want to translate
+##' @param keep_columns A boolean value specifying keeping source data columns or not
 ##' @param source A string specifying a source language like "en", "ko", "ja", ...
 ##' @param target A string specifying a target language like "en", "ko", "ja", ...
-##' @param platform FALSE using naver cloud platform or not
+##' @param platform A boolean value specifying using naver cloud platform or not
 ##' @return A translated data.frame
 ##' @export
 translate_data <- function(data, columns, keep_columns = TRUE, source = "en", target = "ko", platform = FALSE) {
