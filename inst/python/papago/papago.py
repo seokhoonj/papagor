@@ -101,7 +101,6 @@ class Translator:
         translated = []
         for _, column in enumerate(columns):
             unique_column_data = list(data[column].unique())
-            print(unique_column_data)
             if np.nan in unique_column_data:
                 unique_column_data.remove(np.nan)
             unique_data.append(unique_column_data)
