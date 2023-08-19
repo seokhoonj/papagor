@@ -3,7 +3,7 @@ papago <- NULL
 .onLoad <- function(libname, pkgname) {
   papago <<- reticulate::import_from_path(
     module = "papago",
-    path = system.file("python", "papago", package = "papagor"),
+    path = system.file("python", package = "papagor"),
     delay_load = TRUE
   )
 }
