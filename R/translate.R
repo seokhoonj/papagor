@@ -10,7 +10,7 @@
 ##' @param text A string or vector text you want to translate
 ##' @param source A string specifying a source language like "en", "ko", "ja", ...
 ##' @param target A string specifying a target language like "en", "ko", "ja", ...
-##' @param platform FALSE using naver cloud platform or not
+##' @param platform A boolean value determines whether to use naver cloud platform or not
 ##' @return A translated text
 ##' @export
 translate <- function(text, source = "en", target = "ko", platform = FALSE) {
@@ -38,7 +38,7 @@ translate <- function(text, source = "en", target = "ko", platform = FALSE) {
 ##' @param keep_columns A boolean value specifying keeping source data columns or not
 ##' @param source A string specifying a source language like "en", "ko", "ja", ...
 ##' @param target A string specifying a target language like "en", "ko", "ja", ...
-##' @param platform A boolean value specifying using naver cloud platform or not
+##' @param platform A boolean value determines whether to use naver cloud platform or not
 ##' @return A translated data.frame
 ##' @export
 translate_data <- function(data, columns, keep_columns = TRUE, source = "en", target = "ko", platform = FALSE) {
@@ -69,7 +69,7 @@ translate_data <- function(data, columns, keep_columns = TRUE, source = "en", ta
 ##' @param columns Columns you want to translate
 ##' @param source A string specifying a source language like "en", "ko", "ja", ...
 ##' @param target A string specifying a target language like "en", "ko", "ja", ...
-##' @param platform FALSE using naver cloud platform or not
+##' @param platform A boolean value determines whether to use naver cloud platform or not
 ##' @return A data.frame with unique translated columns (contains both input and output columns)
 ##' @export
 translate_data_unique <- function(data, columns, source = "en", target = "ko", platform = FALSE) {

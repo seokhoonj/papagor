@@ -1,5 +1,6 @@
 # NAVER Papago Language Detection API
 import urllib.request
+import json
 
 class Detector:
     '''papago translator'''
@@ -29,7 +30,9 @@ class Detector:
         rescode = response.getcode()
         if (rescode == 200):
             response_body = response.read()
-            detected_language = response_body.decode('utf-8')
+            response_body = response_body.decode('utf-8')
+            response_json = json.loads(response_body)
+            detected_language = response_json["langCode"]
         else:
             detected_language = "Error Code:" + rescode
         return detected_language
