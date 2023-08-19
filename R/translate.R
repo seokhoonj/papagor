@@ -16,7 +16,7 @@
 translate <- function(text, source = "en", target = "ko", platform = FALSE) {
   client_id <- get_client_id()
   client_secret <- get_client_secret()
-  translator <- papago$Translator(
+  translator <- papago$translator$Translator(
     client_id = client_id,
     client_secret = client_secret,
     source = source,
@@ -46,7 +46,7 @@ translate_data <- function(data, columns, keep_columns = TRUE, source = "en", ta
   client_secret <- get_client_secret()
   if (missing(columns))
     columns <- names(data)
-  translator <- papago$Translator(
+  translator <- papago$translator$Translator(
     client_id = client_id,
     client_secret = client_secret,
     source = source,
@@ -77,7 +77,7 @@ translate_data_unique <- function(data, columns, source = "en", target = "ko", p
   client_secret <- get_client_secret()
   if (missing(columns))
     columns <- names(data)
-  translator <- papago$Translator(
+  translator <- papago$translator$Translator(
     client_id = client_id,
     client_secret = client_secret,
     source = source,
